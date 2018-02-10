@@ -1,0 +1,73 @@
+.cube-view {
+  float:left;
+  width:800px; 
+  height:800px; 
+  margin:0 auto;
+  background: #000;
+  box-reflect: below 3px gradient(linear, left bottom, left top, from(rgba(255,255,255,0.5)), to(transparent));
+
+  &:hover .holder {
+    //animation-name: rotateMeAlso;
+  }
+
+  .holder {
+    perspective: 2400; 
+    float:left;
+    width:800px; 
+    height:400px; 
+    margin:0 auto;
+    perspective-origin: 30px -250px;
+    transform-style: preserve-3d;
+    animation-iteration-count: infinite;
+    animation-duration:10s;
+    animation-name: rotateMeAlso;
+    animation-timing-function: linear;
+  }
+
+  .cube-frame {
+    position: relative;
+    padding:0; list-style:none;
+    margin: 0 auto;
+    height: 400px;
+    width: 200px;
+    transform-style: preserve-3d;
+    animation-iteration-count: infinite;
+    animation-duration:10s;
+    animation-name: rotateMe;
+    animation-timing-function: linear;
+  }
+
+  .cube-frame .side {
+    width:180px; 
+    height:110px;
+    background: rgba(60, 33, 243, 0.168);
+    position: absolute;
+    font-size:22px;
+    display:block;
+    border: 1px solid #999;
+    padding-top:70px;
+    color:#fff;
+    text-align:center;
+    transform-style: preserve-3d;
+  }
+
+  .s1 {transform: rotateY(0deg) translateY(180px) translateZ(90px);}
+  .s2 {transform: rotateY(90deg) translateY(180px) translateZ(90px);}
+  .s3 {transform: rotateY(180deg) translateY(180px) translateZ(90px);}
+  .s4 {transform: rotateY(270deg) translateY(180px) translateZ(90px);}
+  .s5 {transform: rotateX(90deg) translateX(0px) translateY(0px) translateZ(-90px);}
+  .s6 {transform: rotateX(90deg) translateX(0px) translateY(0px) translateZ(-270px);}
+
+  @keyframes rotateMe {
+    0% { transform: rotateY(0deg);}
+    100% { transform: rotateY(-360deg);}
+  }
+
+  @keyframes rotateMeAlso {
+    0% { transform: rotateZ(0deg);margin-left:-200px;}
+    48% { transform: rotateZ(-180deg);margin-left:400px;}
+    50% { transform: rotateZ(-180deg);margin-left:400px;}
+    98% { transform: rotateZ(-360deg);margin-left:-200px;}
+    100% { transform: rotateZ(-360deg);margin-left:-200px;}
+  }
+}

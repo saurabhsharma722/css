@@ -1,0 +1,40 @@
+/*
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1{
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+@function to-fixed($float, $digits: 6) {
+  $sass-precision: 5;
+  
+  @if $digits > $sass-precision {
+    @warn "Sass sets default precision";
+  }
+  
+  $pow: pow(10, $digits);
+  @return round($float * $pow) / $pow;
+}
+
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0{
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return to-fixed($fact);
+}
+*/

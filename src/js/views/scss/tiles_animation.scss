@@ -1,0 +1,179 @@
+.tiles-animation-view {
+  overflow:hidden;
+  height: 800px;
+
+  .wall {
+  	position:relative;
+  	top:20%;left:24%;
+  	width:410px;
+  	height:410px;
+  	animation-duration:3s;
+  	animation-timing-function:linear;
+  	animation-delay:0.5s;
+    animation-iteration-count: infinite;
+  	animation-play-state:running;
+  	animation-name:closeAndRotate;
+  }
+
+  .view:hover .wall {
+    //animation-name:closeAndRotate;
+  }
+
+  .wall .tap
+  {
+  	padding:0;
+  	width:200px;
+  	height:200px;
+  	position:absolute;
+  	font-size:20px;
+  	text-align:center;
+  	color:#fff;
+  	box-shadow: 0px 0px 10px #444;
+  	background:rgba(185, 32, 58, 0.9);
+  	font-weight:bold;
+  	
+  }
+
+  .tap:hover{
+  	background:#555;
+  }
+
+  .tap div{
+  	top:0;left:0;
+  	padding-top:10px;
+  	width:200px;
+  	height:190px;
+  	
+  	animation-name:animateText;
+  	animation-duration:0.5s;
+  	animation-timing-function:linear;
+  	animation-delay:1.3s;
+  	animation-iteration-count:1;
+  	animation-play-state:running
+  }
+
+  .ball1
+  {
+  	left:0;
+  	top:0;
+  	border-radius:0px 100px 0px 100px;
+  	animation-name:animate1;
+  	animation-duration:1.5s;
+  	animation-timing-function:linear;
+  	animation-delay:0.2s;
+  	animation-iteration-count:1;
+  	animation-play-state:running;
+  	z-index:1;
+  }
+
+  .ball2
+  {
+  	right:0px;
+  	top:0;
+  	border-radius:100px 0px 100px 0px;
+  	animation-name:animate2;
+  	animation-duration:1.5s;
+  	animation-timing-function:linear;
+  	animation-delay:0.2s;
+  	z-index:2;
+  }
+
+
+  .ball3
+  {
+  	bottom:0;
+  	left:0;
+  	border-radius:100px 0px 100px 0px;
+  	animation-name:animate3;
+  	animation-duration:1.5s;
+  	animation-timing-function:linear;
+  	animation-delay:0.2s;
+  	z-index:3;
+  }
+
+
+  .ball4
+  {
+  	bottom:0;
+  	right:0;
+  	border-radius:0px 100px 0px 100px;
+  	animation-name:animate4;
+  	animation-duration:1.5s;
+  	animation-timing-function:linear;
+  	animation-delay:0.2s;
+  	z-index:4;
+  }
+
+
+  @keyframes animateText /* Safari and Chrome */
+  {
+  0% {transform:rotateZ(-360deg);}
+  50% {transform:rotateZ(0deg);}
+  50.1% {transform:rotateZ(-360deg);}
+  100% {transform:rotateZ(0deg);}
+
+  }
+  @keyframes animate1 /* Safari and Chrome */
+  {
+  0%   {font-size:8px;width:20px;
+  	height:20px;transform:rotateZ(0deg);}
+
+  25% {transform:rotateZ(-360deg);}
+  25.1% {transform:rotateZ(0deg);}
+  50%{border-radius:0px 50px 0px 50px;}
+  100% {width:200px;border-radius:0px 100px 0px 100px;
+  	height:200px;font-size:20px;transform:rotateZ(-360deg);}
+  }
+
+  @keyframes animate2 /* Safari and Chrome */
+  {
+  0%   {font-size:8px;width:20px;
+  	height:20px;transform:rotateZ(0deg);}
+
+  25% {transform:rotateZ(-360deg);}
+  25.1% {transform:rotateZ(0deg);}
+  50%{border-radius:50px 0px 50px 0px;}
+  100% {width:200px;border-radius:100px 0px 100px 0px;
+  	height:200px;font-size:20px;transform:rotateZ(-360deg);}
+  }
+
+  @keyframes animate3 /* Safari and Chrome */
+  {
+  0%   {font-size:8px;width:20px;
+  	height:20px;transform:rotateZ(0deg);}
+
+  25% {transform:rotateZ(-360deg);}
+  25.1% {transform:rotateZ(0deg);}
+  50%{border-radius:50px 0px 50px 0px;}
+  100% {width:200px;border-radius:100px 0px 100px 0px;
+  	height:200px;font-size:20px;transform:rotateZ(-360deg);}
+  }
+
+
+  @keyframes animate4 /* Safari and Chrome */
+  {
+  0%   {font-size:8px;width:20px;
+  	height:20px;transform:rotateZ(0deg);}
+
+  25% {transform:rotateZ(-360deg);}
+  25.1% {transform:rotateZ(0deg);}
+  50%{border-radius:0px 50px 0px 50px;}
+  100% {width:200px;border-radius:0px 100px 0px 100px;
+  	height:200px;font-size:20px;transform:rotateZ(-360deg);}
+  }
+
+  @keyframes closeAndRotate /* Safari and Chrome */
+  {
+  0% {top: -1%;left:-3.1%;
+  	width:800px;
+  	height:800px;transform:rotateZ(0deg);}
+  10% {transform:rotateZ(-120deg);}
+  35% {top:20%;left:24%;
+  	width:410px;
+  	height:410px;transform:rotateZ(-360deg);}
+  100% {top:20%;left:24%;
+  	width:410px;
+  	height:410px;transform:rotateZ(-360deg);}
+  }
+
+}

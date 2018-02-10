@@ -1,0 +1,45 @@
+#mainView {
+  width: 600px;
+  margin: 50px auto; 
+}
+
+.container {
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  padding: 100px 0;
+  border: 1px solid #ddd;
+}
+
+.demo-controls {
+  padding: 10px;
+}
+
+.demo-controls span {
+  margin-left: 20px;
+}
+
+li {
+  width: 180px;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+
+a span {
+  display: block;
+}
+
+.brand, .price {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 736px) {
+  .container {
+    width: 100%;
+  }
+}

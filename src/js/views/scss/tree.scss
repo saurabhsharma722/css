@@ -1,0 +1,177 @@
+.tree-view1 {
+  .dot {
+    background: #000;
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    transform: translate(-50%, 50%);
+  }
+
+  @mixin co-ordinate($num) {
+    $a: 0;
+    $b: 1;
+    $c: 1;
+    
+    @for $k from 1 through $num {
+      $c: $a + $b;
+      $a: $b;
+      $b: $c;
+    }
+    
+    //top: #{sin($num)*30}px;
+    //left: #{cos($num)*30}px;
+    z-index: sin(10);
+  }
+  
+  @for $i from 1 through 1 {
+    .dot:nth-child(#{$i}) {
+      @include co-ordinate($i + 1);
+    }
+  }
+}
+
+.tree-view {
+  $start-shadow: ();
+  $mid-shadow: ();
+  $end-shadow: ();
+  overflow: hidden;
+
+  @function co-ordinate($num) {
+    $a: 0;
+    $b: 1;
+    $c: 1;
+    
+    @for $k from 100 through $num {
+      $c: $a + $b;
+      $a: $b;
+      $b: $c;
+    }
+    @return $c;
+  }
+
+  @function get-lines($num) {
+    $n: $num;
+    $new-line: ();
+
+    @while $n > 5 {
+      $n: $n/2;
+      $new-line: append($new-line, #{$num + 2*$n}px #{$num}px 0 hsl(random(100), random(50), 50%), comma);
+      $new-line: append($new-line, #{$n}px #{$num + $n}px 0 hsl(random(255), random(99), 99%), comma);
+      $new-line: append($new-line, #{$num - $n}px #{$num}px 0 hsl(random(50), random(100), 25%), comma);
+      $new-line: append($new-line, #{$n}px #{$num}px 0 hsl(random(100), random(200), 80%), comma);
+      $new-line: append($new-line, #{$num}px #{$n}px 0 hsl(random(200), random(100), 30%), comma);
+      
+      @if $num%2 == 0 {
+        $new-line: append($new-line, #{$num + 2*$n}px -#{$num}px 0 hsl(random(120), 50%, random(200)), comma);
+        $new-line: append($new-line, #{$n}px -#{$num + $n}px 0 hsl(random(150), 95%, random(200)), comma);
+        $new-line: append($new-line, #{$num - $n}px -#{$num}px 0 hsl(random(255), 20%, random(100)), comma);
+        $new-line: append($new-line, #{$n}px -#{$num}px 0 hsl(random(100), 50%, random(200)), comma);
+        $new-line: append($new-line, #{$num}px -#{$n}px 0 hsl(random(255), 70%, random(100)), comma);
+      }
+      
+      @if $num%3 == 0 {
+        $new-line: append($new-line, -#{$num + 2*$n}px -#{$num}px 0 hsl(random(155), 20%, 55%), comma);
+        $new-line: append($new-line, -#{$n}px -#{$num + $n}px 0 hsl(random(205), 55%, 10%), comma);
+        $new-line: append($new-line, -#{$num - $n}px -#{$num}px 0 hsl(random(255), 10%, 25%), comma);
+        $new-line: append($new-line, -#{$n}px -#{$num}px 0 hsl(random(250), 90%, 40%), comma);
+        $new-line: append($new-line, -#{$num}px -#{$n}px 0 hsl(random(155), 35%, 90%), comma);
+      }
+      
+      @if $num%4 == 0 {
+        $new-line: append($new-line, -#{$num + 2*$n}px #{$num}px 0 hsl(55, 20%, 90%), comma);
+        $new-line: append($new-line, -#{$n}px #{$num + $n}px 0 hsl(random(255), 50%, 25%), comma);
+        $new-line: append($new-line, -#{$num - $n}px #{$num}px 0 hsl(random(100), 20%, 55%), comma);
+        $new-line: append($new-line, -#{$n}px #{$num}px 0 hsl(50, 70%, 15%), comma);
+        $new-line: append($new-line, -#{$num}px #{$n}px 0 hsl(random(200), 25%, 65%), comma);
+      }
+    }
+
+    @return $new-line;
+  }
+
+  @function get-shadow($num) {
+    $new-shadow: ();
+    $new-shadow: get-lines($num);
+    
+    @return $new-shadow;
+  }
+
+  @for $i from 1 through 100 {
+    $s1-shadow: get-shadow($i*7);
+    $s2-shadow: get-shadow(($i + 3)*5);
+    $s3-shadow: get-shadow(($i + 3)*43);
+
+    $start-shadow: append($start-shadow, $s1-shadow, comma);
+    $mid-shadow: append($mid-shadow, $s2-shadow, comma);
+    $end-shadow: append($end-shadow, $s3-shadow, comma);
+  }
+  
+  background: #000;
+  
+  .tree-frame {
+    // top: 50%;
+    // left: 50%;
+    // position: absolute;
+    // width: 190px;
+    // height: 190px;
+    // transform: translate(-50%, -50%);
+    // border: 1px solid #000;
+    // overflow: hidden;
+    // border-radius: 50%;
+    // animation: zoom-me 10s infinite alternate ease-in-out;
+    // background: radial-gradient(transparent, rgba(0,0,0, 0.7), rgba(0,0,0, 0.8), rgba(0,0,0, 0.95), #ff0);
+  }
+  
+
+  .dot {
+    background: transparent;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    margin-top: 50%;
+    margin-left: 3px;
+    animation: anim 15s infinite alternate ease-in-out;
+    box-shadow: $start-shadow;
+    
+    &:first-child {
+      //animation-delay: 3s;
+    }
+    
+    &:last-child {
+      //animation-delay: 1s;
+    }
+  }
+  
+  @keyframes zoom-me {
+    0%{ width: 190px; height: 190px}
+    100%{ width: 1000px; height: 1000px}
+  }
+
+  @keyframes anim {
+    0%{
+      width: 3px;
+      height: 3px;
+      transform: rotateZ(0deg);
+      box-shadow: $start-shadow;
+    }
+
+    50% {
+      box-shadow: $mid-shadow;
+      width: 10px;
+      height: 10px;
+    }
+    
+    100% {
+      width: 3px;
+      height: 3px;
+      box-shadow: $end-shadow;
+      transform: rotateZ(-360deg);
+    }
+  }
+}

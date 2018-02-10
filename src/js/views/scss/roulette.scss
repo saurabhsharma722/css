@@ -1,0 +1,198 @@
+.roulette-view {
+  background: repeating-linear-gradient(132deg, #000, #333 30px, #252323 30px, #151313 60px);
+  height: 750px;
+
+  ul.piechart {
+    top: -400px;
+    padding:0;
+    margin:50px auto;
+    list-style:none;
+    width:340px;
+    height:340px; 
+    overflow:hidden; 
+    border-radius:320px;
+    position:relative;
+    border: 5px solid #bb1f1f36;
+    box-shadow: 0 0 15px #333;
+    background: #ffffff54;
+    transform: rotateZ(-25deg);
+    animation-name: spinAnimation;
+    animation-duration:35s;
+  	animation-timing-function: ease-in-out;
+  	animation-delay:2s;
+    animation-iteration-count: infinite;
+  	animation-play-state:running;
+  }
+
+  ul.piechart:hover {
+    animation-name:closeAndRotate;
+  }
+
+  ul.piechart li {
+    width:300px; height:300px;
+    background:transparent;
+    position:absolute;
+    overflow:hidden;
+  transform-origin:0 300px;
+  -moz-transform-origin:0 300px;
+  -ms-transform-origin:0 300px;
+  -o-transform-origin:0 300px;
+  transform-origin:0 300px;
+  color: #000;
+  background: #ffffff82;
+  }
+
+  ul.piechart li:nth-child(1) {left:172px; top:-135px;
+  transform: skewY(-45deg);
+  -moz-transform: skewY(-45deg);
+  -ms-transform: skewY(-45deg);
+  -o-transform: skewY(-45deg);
+  transform: skewY(-45deg);
+  }
+  ul.piechart li:nth-child(2) {left:175px; top:-132px;
+  transform:rotate(45deg) skewY(-45deg);
+  -moz-transform:rotate(45deg) skewY(-45deg);
+  -ms-transform:rotate(45deg) skewY(-45deg);
+  -o-transform:rotate(45deg) skewY(-45deg);
+  transform:rotate(45deg) skewY(-45deg);
+  background: rgba(3, 169, 244, 0.4588235294117647);
+  }
+  ul.piechart li:nth-child(3) {left:175px; top:-128px;
+  transform:rotate(90deg) skewY(-45deg);
+  -moz-transform:rotate(90deg) skewY(-45deg);
+  -ms-transform:rotate(90deg) skewY(-45deg);
+  -o-transform:rotate(90deg) skewY(-45deg);
+  transform:rotate(90deg) skewY(-45deg);
+  }
+  ul.piechart li:nth-child(4) {left:172px; top:-125px;
+  transform:rotate(135deg) skewY(-45deg);
+  -moz-transform:rotate(135deg) skewY(-45deg);
+  -ms-transform:rotate(135deg) skewY(-45deg);
+  -o-transform:rotate(135deg) skewY(-45deg);
+  transform:rotate(135deg) skewY(-45deg);
+  background: rgba(204, 67, 67, 0.7019607843137254);
+  }
+  ul.piechart li:nth-child(5) {left:168px; top:-125px;
+  transform:rotate(180deg) skewY(-45deg);
+  -moz-transform:rotate(180deg) skewY(-45deg);
+  -ms-transform:rotate(180deg) skewY(-45deg);
+  -o-transform:rotate(180deg) skewY(-45deg);
+  transform:rotate(180deg) skewY(-45deg);
+  }
+  ul.piechart li:nth-child(6) {left:165px; top:-128px;
+  transform:rotate(225deg) skewY(-45deg);
+  -moz-transform:rotate(225deg) skewY(-45deg);
+  -ms-transform:rotate(225deg) skewY(-45deg);
+  -o-transform:rotate(225deg) skewY(-45deg);
+  transform:rotate(225deg) skewY(-45deg);
+  background: rgba(50, 115, 50, 0.3411764705882353);
+  }
+  ul.piechart li:nth-child(7) {left:165px; top:-132px;
+  transform:rotate(270deg) skewY(-45deg);
+  -moz-transform:rotate(270deg) skewY(-45deg);
+  -ms-transform:rotate(270deg) skewY(-45deg);
+  -o-transform:rotate(270deg) skewY(-45deg);
+  transform:rotate(270deg) skewY(-45deg);
+  }
+  ul.piechart li:nth-child(8) {left:168px; top:-135px;
+  transform:rotate(315deg) skewY(-45deg);
+  -moz-transform:rotate(315deg) skewY(-45deg);
+  -ms-transform:rotate(315deg) skewY(-45deg);
+  -o-transform:rotate(315deg) skewY(-45deg);
+  transform:rotate(315deg) skewY(-45deg);
+  background: rgba(41, 41, 144, 0.38823529411764707);
+  }
+
+
+  ul.piechart li b {
+    display:block;
+    width:300px;
+    height:300px;
+    border-radius:300px;
+    position:absolute;
+    left:-150px;
+    top:150px;
+  transform: skewY(45deg);
+  -moz-transform: skewY(45deg);
+  -ms-transform: skewY(45deg);
+  -o-transform: skewY(45deg);
+  transform: skewY(45deg);
+  }
+
+  ul.piechart li b span {
+    position:absolute;
+    left:152px;
+    top:65px;
+    border:0;
+  transform:rotate(-68.5deg);
+  -moz-transform:rotate(-68.5deg);
+  -ms-transform:rotate(-68.5deg);
+  -o-transform:rotate(-68.5deg);
+  transform:rotate(-68.5deg);
+  line-height: 0;
+  }
+
+  #spin_buttom {
+    width: 60px;
+    height: 42px;
+    border-radius: 30px;
+    top: 140px;
+    left: 140px;
+    background: brown;
+    color: white;
+    padding-top: 18px;
+    text-align: center;
+  }
+
+  .roulette-stand {
+    background: #581e1e;
+    width: 100px;
+    height: 450px;
+    position: relative;
+    top: 60%;
+    border-radius: 50px 50px 0px 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .roulette-pointer {
+    width: 35px;
+    height: 100px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 50px 50px 0px 0px;
+    transform: translate(0, -474%);
+    border-bottom: 10px solid rgba(0, 0, 0, 0.8196078431372549);
+  }
+
+
+  .roulette-pointer .pointer {
+    left: 18px;
+    top: -300px;
+    width:300px; height:300px;
+    background:transparent;
+    position:relative;
+    overflow:hidden;
+  transform-origin:0 300px;
+  -moz-transform-origin:0 300px;
+  -ms-transform-origin:0 300px;
+  -o-transform-origin:0 300px;
+  transform-origin:0 300px;
+
+  transform: rotate(172deg) skewY(-75deg);
+  background: rgba(56, 25, 25, 0.6);
+  }
+
+  @keyframes spinAnimation /* Safari and Chrome */
+  {
+  0% {transform:rotateZ(-25deg);}
+  15% {transform:rotateZ(1825deg);}
+  30% {transform:rotateZ(-600deg);}
+  45% {transform:rotateZ(300deg);}
+  60% {transform:rotateZ(-150deg);}
+  75% {transform:rotateZ(-25deg);}
+  100% {transform:rotateZ(-25deg);}
+  }
+
+}
